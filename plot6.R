@@ -20,3 +20,4 @@ plot6 <- function() {
         print(plot6draw())
         dev.off()
 }
+plot6()

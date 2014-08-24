@@ -18,3 +18,4 @@ plot5 <- function() {
         print(plot5draw())
         dev.off()
 }
+plot5()
