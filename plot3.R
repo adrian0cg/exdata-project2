@@ -13,8 +13,8 @@ plot3draw <- function() {
 print(plot3draw())
 
 plot3 <- function() {
-        png(filename="plot3.png")
-        plot3draw()
+        png(filename="plot3.png",height=960,width=480)
+        print(plot3draw())
         dev.off()
 }
 plot3()
