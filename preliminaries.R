@@ -24,4 +24,4 @@ loadNeiData <- function() {
 }
 loadNeiData()
 
-baltimore <<- NEI$fips == 24510
+baltimore <- NEI$fips == "24510"
