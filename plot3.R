@@ -2,9 +2,15 @@ source("preliminaries.R")
 library(ggplot2)
 
 plot3draw <- function() {
-        qplot(NEI$year[baltimore],NEI$Emission[baltimore])                
+        NEIbaltimore <- NEI[baltimore,]
+        qplot(
+                year, Emissions,
+                data = NEIbaltimore,
+                facets= type~.,
+                geom=c("point","smooth"),method=lm
+        ) + ggtitle("Emissions of various source types in Baltimore")
 }
-plot3draw()
+print(plot3draw())
 
 plot3 <- function() {
         png(filename="plot3.png")
