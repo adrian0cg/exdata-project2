@@ -14,7 +14,8 @@ obtainNeiData()
 loadNeiData <- function() {
         if (!exists("NEI") || is.null(NEI) || any(dim(NEI) != c(6497651,6))) {
                 message("loading NEI")
-                NEI <<- readRDS("data/summarySCC_PM25.rds")                
+                NEI <<- readRDS("data/summarySCC_PM25.rds")
+                NEI$type = as.factor(NEI$type)
         }
         if (!exists("SCC") || is.null(SCC) || any(dim(SCC) != c(11717,15))) {
                 message("loading SCC")
@@ -22,3 +23,5 @@ loadNeiData <- function() {
         }
 }
 loadNeiData()
+
+baltimore <<- NEI$fips == 24510

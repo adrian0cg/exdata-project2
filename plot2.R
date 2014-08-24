@@ -2,9 +2,8 @@ source("preliminaries.R")
 
 plot2draw <- function() {
         with( NEI, {
-                baltimore <- fips == 24510
                 # calc
-                yearlyBaltimoreEmissions <<- tapply(Emissions[baltimore],year[baltimore], sum)
+                yearlyBaltimoreEmissions <- tapply(Emissions[baltimore],year[baltimore], sum)
                 # plot
                 plot(
                         names(yearlyBaltimoreEmissions),
@@ -13,7 +12,7 @@ plot2draw <- function() {
                         xlab="Year", ylab="Sum of PM25-Emissions/[tons]",
                         col="blue", pch=19
                 )
-                baltimoreEmissionModel <<- lm(yearlyBaltimoreEmissions ~ as.integer(names(yearlyBaltimoreEmissions)))
+                baltimoreEmissionModel <- lm(yearlyBaltimoreEmissions ~ as.integer(names(yearlyBaltimoreEmissions)))
                 abline(baltimoreEmissionModel, lwd=2, col="red")        
         })
 }
